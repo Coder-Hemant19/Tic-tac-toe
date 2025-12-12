@@ -1,5 +1,4 @@
 let btns = document.querySelectorAll(".Btn");
-let resetBtn = document.querySelector(".reset");
 let newBtn = document.querySelector(".New");
 let Msg = document.querySelector(".msg");
 
@@ -37,6 +36,12 @@ btns.forEach((btn) => {
         // Disabling the buttons that has been clicked
         btn.disabled = true;
         checkWinner ();
+        
+        if (checkFull())
+        {
+            showMsg();
+            Msg.innerText = "Nice Effort(Draw)";
+        }
     });
 });
 
@@ -56,13 +61,9 @@ function checkWinner ()
             if(pos1 === pos2 && pos2 === pos3)
             {
                 showMsg();
-                Msg.innerText = "Congratulations For Winning";
+                Msg.innerText = `Congratulations For Winning Player ${pos1}`;
             }
         }
-    }
-    for (let i of patterns)
-    {
-        
     }
 }
 
@@ -72,4 +73,39 @@ function showMsg()
     let element = document.getElementById("show");
     element.classList.remove("msg");
 }
+
+//Function that hides thr message
+function hideMsg ()
+{
+    let element = document.getElementById("show");
+    element.classList.add("msg");
+}
+
+//Function that checks whether the buttons are full or not
+function checkFull ()
+{
+   //Loops through the buttons and checks whether it is full or not
+  for(let i = 0; i < btns.length; i++)
+  {
+    if(btns[i].innerText === "")
+    {
+        return false;
+    }
+  }
+  return true;
+}
+
+// Method implemented after clicking New Game
+newBtn.addEventListener("click" , () =>{
+    // Hiding the texts
+    hideMsg();
+    // Loops through the buttons and clears the text inside the buttons and makes it clickable
+    for (i = 0; i < btns.length; i++)
+    {
+        btns[i].innerText = "";
+        btns[i].disabled = false;
+    }
+    // Doesn't replaces the value contained inside the button
+    btns.disabled = true;
+});
 

@@ -42,7 +42,7 @@
     height: 70vh;
 }
 
-.reset
+.New
 {
     margin-top: 10px;
     margin-bottom: 20px;
@@ -52,16 +52,6 @@
     justify-content: center;
     font-family: 'Courier New', Courier, monospace;
     font-size: large;
-}
-
-.New {
-    margin-bottom: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: larger;
 }
 
 .msg
@@ -76,5 +66,5 @@
     color:green;
     margin-top: 200px;
     margin-bottom: 200px;
-    font-size: 60px;
+    font-size: 50px;
 }
