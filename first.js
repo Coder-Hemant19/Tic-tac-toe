@@ -62,6 +62,7 @@ function checkWinner ()
             {
                 showMsg();
                 Msg.innerText = `Congratulations For Winning Player ${pos1}`;
+                return true;
             }
         }
     }
@@ -87,6 +88,12 @@ function checkFull ()
    //Loops through the buttons and checks whether it is full or not
   for(let i = 0; i < btns.length; i++)
   {
+    // Checks whether there is still winner in the last round
+    if(checkWinner() === true)
+    {
+        // Immediately stops the function when a winner is spotted
+        return;
+    }
     if(btns[i].innerText === "")
     {
         return false;
